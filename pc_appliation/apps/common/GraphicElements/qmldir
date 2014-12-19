@@ -1,0 +1,8 @@
+module common.GraphicElements
+Background 1.0 Background.qml
+Group 1.0 Group.qml
+Button 1.0 Button.qml
+RadioButton 1.0 RadioButton.qml
+CheckBox 1.0 CheckBox.qml
+Slider 1.0 Slider.qml
+ScrollBar 1.0 ScrollBar.qml
