@@ -4,7 +4,8 @@ QT += qml quick
 
 SOURCES += main.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += \
+    qml.qrc
 
 OTHER_FILES +=
 
@@ -14,5 +15,4 @@ QML_IMPORT_PATH = "../"
 # Default rules for deployment.
 include(deployment.pri)
 
-DISTFILES += \
-    ../common/GraphicElements/Styles/StyleConfig.js
+DISTFILES +=

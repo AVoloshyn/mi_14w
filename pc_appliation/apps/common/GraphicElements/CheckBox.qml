@@ -1,7 +1,9 @@
 import QtQuick 2.0
-import "Styles/StyleConfig.js" as Configs
+import QtQuick.Controls 1.3
+import QtQuick.Controls.Styles 1.3
+import "../Styles/StyleConfig.js" as Configs
 
-Item {
+CheckBox {
     id : checkBox
     width: 35
     height: 35
@@ -10,30 +12,76 @@ Item {
     property string background_checked: Configs.CheckBox.background_checked
     property string background_inactive: Configs.CheckBox.background_inactive
 
-    property string icon_unchecked: Configs.CheckBox.icon_unchecked
-    property string icon_checked: Configs.CheckBox.icon_checked
-    property string icon_inactive: Configs.CheckBox.icon_inactive
+    property string indicator_unchecked: Configs.CheckBox.indicator_unchecked
+    property string indicator_checked: Configs.CheckBox.indicator_checked
+    property string indicator_inactive: Configs.CheckBox.indicator_inactive
 
-    property bool checked: false
-    signal clicked(bool isChecked)
+    property string text_color_normal: Configs.CheckBox.text_color_normal
+    property string text_color_inactive: Configs.CheckBox.text_color_inactive
+    property string text_color_pressed: Configs.CheckBox.text_color_pressed
 
-    RadioButton {
-        width: parent.width
-        height: parent.height
+    property string text_font_family: Configs.CheckBox.text_font_family
+    property string text_font_size: Configs.CheckBox.text_font_size
 
-        background_unchecked: checkBox.background_unchecked
-        background_checked: checkBox.background_checked
-        background_inactive: checkBox.background_inactive
+    property bool active: true
 
-        icon_unchecked: checkBox.icon_unchecked
-        icon_checked: checkBox.icon_checked
-        icon_inactive: checkBox.icon_inactive
+    style: CheckBoxStyle {
+        indicator: Image {
+           width: checkBox.width
+           height: checkBox.height
 
-        checked: checkBox.checked
+           source: {
+               if (checkBox.active)
+               {
+                   if (control.checked)
+                       return background_checked
+                   else
+                       return background_unchecked
+               }
+               else
+               {
+                   return background_inactive
+               }
+           }
 
-        onClicked: {
-            checkBox.checked = checked;
-            checkBox.clicked(checked)
+           Image {
+               id: indicator
+               anchors.centerIn: parent
+               source: {
+                   if (checkBox.active)
+                   {
+                       if (control.checked)
+                           return indicator_checked
+                       else
+                           return indicator_unchecked
+                   }
+                   else
+                   {
+                       return indicator_inactive
+                   }
+                }
+            }
+        }
+
+        label: Text {
+            font.family: text_font_family
+            font.pointSize: text_font_size
+            color: {
+                if (checkBox.active)
+                {
+                    if (control.checked)
+                        return text_color_pressed
+                    else
+                        return text_color_normal
+                }
+                else
+                {
+                    return text_color_inactive
+                }
+             }
+            text: checkBox.text
         }
     }
 }
+
+

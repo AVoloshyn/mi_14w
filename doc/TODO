@@ -1,0 +1,41 @@
+Choose Project Management Tool:
+- 
+
+Choose IDE and code redactor:
+- Visual Studio
+- Eclipse
+- QT creator
+
+Choose build system:
+- qmake
+- make
+- jam
+
+Choose compilator:
+- MinGW for Windows
+- GCC for Linux
+
+Choose code checking tool or static code analyzer:
+- commertial PC-Lint
+- open source  cppcheck (Qt Creator Cppcheck integration plugin http://sourceforge.net/projects/cppcheck/,  https://github.com/OneMoreGres/qtc-cppcheck)
+- Code Counters (http://sourceforge.net/projects/qtprojecttool/)
+
+
+Choose document redactor and generator:
+- starUML
+
+Choose test and performance IDE. Test coverage:
+-qt test
+
+Choose Design Tool:
+- Photoshop
+
+Revision Control System:
+- git
+- svn
+
+Other tools:
+- diff tool (meld)
+
+Code Style:
+MISRA (Motor Industry Software Reliability Assotiation) C++ Rules

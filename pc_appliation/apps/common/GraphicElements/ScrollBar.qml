@@ -1,13 +1,11 @@
 import QtQuick 2.0;
-import "Styles/StyleConfig.js" as Configs
-
 
 Item {
     id: scrollbar;
     visible: (flickable.visibleArea.heightRatio < 1.0);
 
-    property string image_background: Configs.Slider.slider_background
-    property string image_cursor: Configs.Slider.slider_cursor_layer
+    property string image_background: ""
+    property string image_cursor: ""
 
     property Flickable flickable               : null;
     property int       handleSize              : backScrollbar.sourceSize.width

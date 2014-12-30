@@ -1,6 +1,53 @@
 import QtQuick 2.3
-import "Styles/StyleConfig.js" as Configs
+import QtQuick.Controls 1.3
+import QtQuick.Controls.Styles 1.3
+import "../Styles/StyleConfig.js" as Configs
 
+Slider {
+    id: slider
+
+    property string slider_background: Configs.Slider.slider_background
+    property string slider_handle: Configs.Slider.slider_handle
+    property int slider_groove_width: Configs.Slider.slider_groove_width
+    property string slider_progress_bar_color_to: Configs.Slider.slider_progress_bar_color_to
+    property string slider_progress_bar_color_from: Configs.Slider.slider_progress_bar_color_from
+
+    maximumValue: 100
+    minimumValue: 0
+    stepSize: 0.1
+
+    style: SliderStyle {
+        groove: Image {
+            height: slider.slider_groove_width
+            source: slider_background
+            Rectangle {
+                width: styleData.handlePosition
+                height: parent.height
+                radius: 8
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: slider_progress_bar_color_from }
+                    GradientStop { position: 1.0; color: slider_progress_bar_color_to }
+                }
+            }
+        }
+
+        handle: Image {
+            source: slider_handle
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
 Item {
     id: slider;
     width: 400
@@ -90,3 +137,5 @@ Item {
         }
     ]
 }
+
+*/

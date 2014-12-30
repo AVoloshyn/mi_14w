@@ -1,0 +1,2 @@
+module common.Dialogs
+PopUpDialog 1.0 PopUpDialog.qml
