@@ -1,5 +1,11 @@
 <RCC>
+    <qresource prefix="/images">
+        <file alias="bluetooth">images/Bluetooth.png</file>
+        <file alias="info">images/Info.png</file>
+    </qresource>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>qml/Block.qml</file>
+        <file>qml/main.qml</file>
+        <file>qml/Selector.qml</file>
     </qresource>
 </RCC>
