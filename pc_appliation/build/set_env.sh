@@ -1,20 +1,37 @@
 #!/bin/sh
 #
-#  Script %name:	set_build_env.sh %
-#  Instance:		ADI_WZ_1
-#  %version:		8 %
-#  Description:		
-#  %created_by:		uid65421 %
-#  %date_created:	Fri Nov 21 16:51:28 2014 %
-#
-#
-#  Description:     Script for settingup the build environment of the present project.
+#  Project 		:	MI-14w	
+#  File Name	:	set_env.sh
+#  Authors		:	AVoloshyn
+#  Date Created	:	04.02.2015
+#  Description	:   Script for setting up the build environment of the present project.
 #                   To start it, open a Linux shell, go to the present file path and
 #                   start it with
+#                   ./set_env.sh
 #
-#                   source set_build_env.sh
-#
-#                   The script sets non-permanent build environment variables.
-#                   At the end, it prints what the user should do next.
-#
-echo "set the build environment"
+echo "======================================="
+echo "== Set the Build Environment Started =="
+echo "======================================="
+
+# Add qt-specific paths to LD_LIBRARY_PATH and to PATH
+QT_PATH=$HOME/Qt5.4.0/5.4/gcc/bin
+QT_LIB_PATH=$HOME/Qt5.4.0/5.4/gcc/lib
+
+# Extend the LD_LIBRARY_PATH and PATH variables.
+LD_LIBRARY_PATH=$QT_LIB_PATH:$LD_LIBRARY_PATH
+PATH=$QT_LIB_PATH:$PATH
+
+# Export variables to enviroment.
+export LD_LIBRARY_PATH
+echo "LD_LIBRARY_PATH is ${LD_LIBRARY_PATH}"
+
+export PATH
+echo "PATH is ${PATH}"
+
+# Unset temporary helper variables
+unset QT_PATH
+unset QT_LIB_PATH
+
+echo "========================================"
+echo "== Set the Build Environment Finished =="
+echo "========================================"
