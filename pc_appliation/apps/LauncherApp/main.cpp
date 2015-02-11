@@ -15,10 +15,10 @@
 #include <QQmlContext>
 #include <QDebug>
 #include "src/clauncherhandler.h"
-#include <log4cplus/configurator.h>
-#include <log4cplus/logger.h>
-#include <log4cplus/loggingmacros.h>
-using namespace log4cplus;
+//#include <log4cplus/configurator.h>
+//#include <log4cplus/logger.h>
+//#include <log4cplus/loggingmacros.h>
+//using namespace log4cplus;
 
 void startLogger()
 {
@@ -45,11 +45,11 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     qDebug()<<"LauncherApp: app starting ...";
 
-    startLogger();
+ //   startLogger();
     CLauncherHandler launcherHandler;
 
     QQmlApplicationEngine engine;
-    engine.addImportPath("D:/MedInn/mi_14w/pc_appliation/apps"); // !!! TODO Think about this problem
+//    engine.addImportPath("D:/MedInn/mi_14w/pc_appliation/apps"); // !!! TODO Think about this problem
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     engine.rootContext()->setContextProperty("launcherApp", &launcherHandler);

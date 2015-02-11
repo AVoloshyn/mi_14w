@@ -13,13 +13,19 @@ echo "======================================="
 echo "== Set the Build Environment Started =="
 echo "======================================="
 
+SPATH=$PATH
+set SPATH
+
+# Add qtcreator PATH
+QT_CREATOR_PATH=$HOME/Qt5.4.0/Tools/QtCreator/bin
+
 # Add qt-specific paths to LD_LIBRARY_PATH and to PATH
 QT_PATH=$HOME/Qt5.4.0/5.4/gcc/bin
 QT_LIB_PATH=$HOME/Qt5.4.0/5.4/gcc/lib
 
 # Extend the LD_LIBRARY_PATH and PATH variables.
 LD_LIBRARY_PATH=$QT_LIB_PATH:$LD_LIBRARY_PATH
-PATH=$QT_LIB_PATH:$PATH
+PATH=$QT_LIB_PATH:$QT_CREATOR_PATH:$PATH
 
 # Export variables to enviroment.
 export LD_LIBRARY_PATH
@@ -29,6 +35,7 @@ export PATH
 echo "PATH is ${PATH}"
 
 # Unset temporary helper variables
+unset QT_CREATOR_PATH
 unset QT_PATH
 unset QT_LIB_PATH
 

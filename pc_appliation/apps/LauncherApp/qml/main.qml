@@ -3,7 +3,7 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.3
 import QtQuick.Controls.Styles 1.3
-import common.GraphicElements 1.0
+//import common.GraphicElements 1.0
 
 ApplicationWindow {
     id: window
@@ -18,9 +18,9 @@ ApplicationWindow {
     //minimumWidth: width
     title: "Launcher"
 
-    style: ApplicationWindowStyle {
-        background: Background { }
-    }
+ //   style: ApplicationWindowStyle {
+ //       background: Background { }
+ //   }
 
     Selector {
         id: selector_item
