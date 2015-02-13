@@ -2,6 +2,8 @@ TEMPLATE = app
 
 QT += qml quick
 
+QML_IMPORT_PATH += ../
+
 SOURCES += main.cpp \
     src/clauncherhandler.cpp
 
@@ -16,7 +18,7 @@ OTHER_FILES += qml\main.qml \
 # Default rules for deployment.
 include(deployment.pri)
 
-DISTFILES +=
+DISTFILES += QMLJSDEBUGGER
 
 HEADERS += \
     src/clauncherhandler.h

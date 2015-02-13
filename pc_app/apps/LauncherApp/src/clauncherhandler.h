@@ -21,93 +21,6 @@
 //============================================================================
 //                              DEFINES
 //============================================================================
-class A
-{
-public:
-    int i;
-
-    virtual void fun()
-    {
-        qDebug()<<"Class A fun"<<endl;
-    }
-};
-
-class B: public A
-{
-public:
-    void fun()
-    {
-        qDebug()<<"Class B fun"<<endl;
-    }
-};
-
-class C: public A
-{
-public:
-    int i;
-
-    virtual void fun()
-    {
-        qDebug()<<"Class C fun"<<endl;
-    }
-};
-
-class COperator
-{
-    int mas[5];
-
-public:
-
-    COperator()
-    {
-        for (int i = 0; i < (sizeof mas)/(sizeof (int)); i++)
-        {
-            mas[i] = i;
-        }
-    };
-
-    int operator[](int elem)
-    {
-        return mas[elem];
-    }
-};
-
-
-class CBase
-{
-public:
-
-    int i;
-
-    virtual void printI()
-    {
-        qDebug()<<"CBase";
-    }
-
-    virtual void set()
-    {
-        qDebug()<<"CDerived";
-    }
-};
-
-class CDerived : public CBase
-{
-public:
-
-    int i;
-
-    virtual void printI()
-    {
-        qDebug()<<"CDerived";
-    }
-
-    virtual void set()
-    {
-        qDebug()<<"CDerived";
-    }
-};
-
-
 //============================================================================
 //                         CLASS DECLARATION
 //============================================================================
@@ -131,11 +44,6 @@ public:
     // Return      : none
     //------------------------------------------------------------------------
     ~CLauncherHandler();
-
-
-    const int i;
-
-    static int j;
 
 signals:
 

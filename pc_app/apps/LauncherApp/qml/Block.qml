@@ -145,7 +145,10 @@ Item {
         angle: 0
 
         onAngleChanged: {
-            block.angleChanged(block_rotation.angle);
+            while(1)
+            {
+                //block.angleChanged(block_rotation.angle);
+            }
         }
     }
 
