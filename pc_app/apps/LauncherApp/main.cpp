@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     CLauncherHandler launcherHandler;
 
     QQmlApplicationEngine engine;
-    engine.addImportPath("../"); // !!! TODO Think about this problem
+    engine.addImportPath("../");
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     engine.rootContext()->setContextProperty("launcherApp", &launcherHandler);
