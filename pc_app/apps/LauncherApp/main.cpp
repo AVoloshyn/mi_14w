@@ -15,27 +15,11 @@
 #include <QQmlContext>
 #include <QDebug>
 #include "src/clauncherhandler.h"
-//#include <log4cplus/configurator.h>
-//#include <log4cplus/logger.h>
-//#include <log4cplus/loggingmacros.h>
-//using namespace log4cplus;
 
-void startLogger()
-{
-    //Qt5DebugAppender::registerAppender();
-
-    // Load the properties
-//    PropertyConfigurator::doConfigure(LOG4CPLUS_TEXT("launcherLog.properties"));
-
-    // Create the logger
-//    const Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
-
-    // Log with INFO level
-//    if (logger.isEnabledFor(INFO_LOG_LEVEL))
-//    {
-//        LOG4CPLUS_INFO(logger, "Application startup");
-//    }
-}
+#include <log4cplus/logger.h>
+#include <log4cplus/configurator.h>
+#include <log4cplus/loggingmacros.h>
+using namespace log4cplus;
 
 //----------------------------------------------------------------------------
 // Launcher Application Main Function
@@ -43,9 +27,19 @@ void startLogger()
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    qDebug()<<"LauncherApp: app starting ...";
 
- //   startLogger();
+    PropertyConfigurator::doConfigure(LOG4CPLUS_TEXT("log4cplus.properties"));
+
+    // Create the logger
+    Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("filelogger"));
+
+    // Load the properties
+
+    if (logger.isEnabledFor(INFO_LOG_LEVEL))
+    {
+       LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("asd"));
+    }
+
     CLauncherHandler launcherHandler;
 
     QQmlApplicationEngine engine;
