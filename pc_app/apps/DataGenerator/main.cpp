@@ -2,7 +2,7 @@
 //
 //============================================================================
 //  Project     :  MI-14w
-//  Application :  LauncherApp
+//  Application :  DataGenerator
 //  File Name   :  main.cpp
 //  Authors     :  AVoloshyn
 //  Date Created:  01.12.2014
@@ -11,43 +11,23 @@
 //============================================================================
 //                              INCLUDES
 //============================================================================
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <QDebug>
-#include "src/clauncherhandler.h"
-
-#include <log4cplus/logger.h>
-#include <log4cplus/configurator.h>
-#include <log4cplus/loggingmacros.h>
-using namespace log4cplus;
+#include "src/cbuttonhandler.h"
 
 //----------------------------------------------------------------------------
-// Launcher Application Main Function
+// Data Generator Application Main Function
 //----------------------------------------------------------------------------
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
-    PropertyConfigurator::doConfigure(LOG4CPLUS_TEXT("log4cplus.properties"));
-
-    // Create the logger
-    Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("filelogger"));
-
-    // Load the properties
-
-    if (logger.isEnabledFor(INFO_LOG_LEVEL))
-    {
-       LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("asd"));
-    }
-
-    CLauncherHandler launcherHandler;
+    CButtonHandler buttonHandler;
 
     QQmlApplicationEngine engine;
-    engine.addImportPath("../");
-    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    engine.rootContext()->setContextProperty("launcherApp", &launcherHandler);
-
+    engine.rootContext()->setContextProperty("buttonHandler", &buttonHandler);
     return app.exec();
 }

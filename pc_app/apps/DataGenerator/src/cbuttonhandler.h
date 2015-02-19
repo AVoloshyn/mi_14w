@@ -2,14 +2,15 @@
 //
 //============================================================================
 //  Project     :  MI-14w
-//  File Name   :  CLauncherHandler.h
+//  Application :  DataGenerator
+//  File Name   :  CButtonHandler.h
 //  Authors     :  AVoloshyn
 //  Date Created:  09.01.2015
-//  Description :  This file defines launcher handler class header,
-//              :  which will be responsible for launcher buttons handling
+//  Description :  This file defines button handler class header,
+//              :  which will be responsible for data generator buttons handling
 //============================================================================
-#ifndef CLAUNCHERHANDLER_H
-#define CLAUNCHERHANDLER_H
+#ifndef CBUTTONHANDLER_H
+#define CBUTTONHANDLER_H
 
 //============================================================================
 //                              INCLUDES
@@ -23,31 +24,36 @@
 //============================================================================
 //                         CLASS DECLARATION
 //============================================================================
-class CLauncherHandler : public QObject
+class CButtonHandler : public QObject
 {
     Q_OBJECT
-
 public:
     // -----------------------------------------------------------------------
-    // Method      : CLauncherHandler()
+    // Method      : CButtonHandler()
     // Description : Default constructor
     // Inputs      : none
     // Return      : none
     //------------------------------------------------------------------------
-    explicit CLauncherHandler(QObject *parent = 0);
+    explicit CButtonHandler(QObject *parent = 0);
 
     // -----------------------------------------------------------------------
-    // Method      : ~CLauncherHandler()
-    // Description : Default destructo
+    // Method      : CButtonHandler()
+    // Description : Default destructor
     // Inputs      : none
     // Return      : none
     //------------------------------------------------------------------------
-    ~CLauncherHandler();
+    ~CButtonHandler();
 
 signals:
 
 public slots:
+    // -----------------------------------------------------------------------
+    // Method      : onButtonClicked()
+    // Description :
+    // Inputs      :
+    // Return      :
+    //------------------------------------------------------------------------
     void onButtonClicked(QString button);
 };
 
-#endif // CLAUNCHERHANDLER_H
+#endif // CBUTTONHANDLER_H
