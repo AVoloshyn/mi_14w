@@ -3,21 +3,15 @@ import QtQuick.Window 2.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.3
 import QtQuick.Controls.Styles 1.3
-//import "../common/GraphicElements" as GE
 import common.GraphicElements 1.0
-
 
 ApplicationWindow {
     id: window
     visible: true
-    x: 100
-    y: 100
+    x: 50
+    y: 50
     width: 1000
     height: 600
-    //maximumHeight: height
-    //maximumWidth: width
-    //minimumHeight: height
-    //minimumWidth: width
     title: "Launcher"
 
     style: ApplicationWindowStyle {

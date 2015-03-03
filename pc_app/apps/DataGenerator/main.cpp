@@ -14,7 +14,7 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include "src/cbuttonhandler.h"
+#include "src/cdgcontroller.h"
 
 //----------------------------------------------------------------------------
 // Data Generator Application Main Function
@@ -23,11 +23,11 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    CButtonHandler buttonHandler;
-
     QQmlApplicationEngine engine;
+    CDGController controller(engine.rootContext());
+
+    engine.addImportPath("../");
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    engine.rootContext()->setContextProperty("buttonHandler", &buttonHandler);
     return app.exec();
 }

@@ -1,44 +1,62 @@
 import QtQuick 2.4
-import QtQuick.Controls 1.3
 import QtQuick.Window 2.2
-import QtQuick.Dialogs 1.2
+import QtQuick.Layouts 1.1
+import QtQuick.Controls 1.3
+import QtQuick.Controls.Styles 1.3
+import common.GraphicElements 1.0
 
 ApplicationWindow {
-    title: qsTr("Generator")
-    width: 640
-    height: 480
+    id: window
     visible: true
+    x: 1100
+    y: 50
+    width: 800
+    height: 400
+    title: "Launcher"
 
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("&File")
-            MenuItem {
-                text: qsTr("&Open")
-                onTriggered: messageDialog.show(qsTr("Open action triggered"));
-            }
-            MenuItem {
-                text: qsTr("E&xit")
-                onTriggered: Qt.quit();
-            }
+    style: ApplicationWindowStyle {
+        background: Background { }
+    }
+
+    Rectangle {
+        id: txt_area
+        anchors.centerIn: parent
+        width: 400
+        height: 30
+
+        Text {
+            id: received_txt
+            text:""
+            color: "black"
+            font.pointSize: 14
         }
     }
 
-    MainForm {
-        anchors.fill: parent
-        button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
-        button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
-        button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
+    Button {
+        id: prev_btn
+        x: 100
+        y: 300
+        height: 50
+        text: "Previous"
+        onClicked: buttonHandler.onButtonClicked("previous")
     }
 
-    MessageDialog {
-        id: messageDialog
-        title: qsTr("May I have your attention, please?")
+    Button {
+        id: main_btn
+        x: 300
+        y: 300
+        height: 50
+        text: "Main"
+        onClicked: buttonHandler.onButtonClicked("main")
+    }
 
-        function show(caption) {
-            messageDialog.text = caption;
-            messageDialog.open();
-            buttonHandler.onButtonClicked("caption");
-        }
+    Button {
+        id: next_btn
+        x: 500
+        y: 300
+        height: 50
+        text: "Next"
+        onClicked: buttonHandler.onButtonClicked("next")
     }
 
     Component.onCompleted: {

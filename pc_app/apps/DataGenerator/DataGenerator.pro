@@ -3,7 +3,8 @@ TEMPLATE = app
 QT += qml quick widgets
 
 SOURCES += main.cpp \
-    src/cbuttonhandler.cpp
+    src/cbuttonhandler.cpp \
+    src/cdgcontroller.cpp
 
 RESOURCES += qml.qrc
 
@@ -14,4 +15,5 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    src/cbuttonhandler.h
+    src/cbuttonhandler.h \
+    src/cdgcontroller.h
