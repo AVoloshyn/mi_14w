@@ -3,7 +3,8 @@ TEMPLATE = app
 QT += qml quick
 
 DISTFILES += QMLJSDEBUGGER \
-    log4cplus.properties
+    log4cplus.properties \
+    qml/Footer.qml
 
 QML_IMPORT_PATH += ../
 
@@ -13,7 +14,7 @@ HEADERS += \
 SOURCES += main.cpp \
     src/clauncherhandler.cpp
 
-LIBS += -llog4cplus
+#LIBS += -llog4cplus
 
 RESOURCES += \
     qml.qrc

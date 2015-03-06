@@ -20,9 +20,17 @@ ApplicationWindow {
 
     Selector {
         id: selector_item
-        anchors.centerIn: parent
+        x: 100
+        y: 70
         width: parent.width - 200
         height: parent.height - 200
+    }
+
+    Footer {
+        x: parent.x
+        y: parent.height - height
+        width: parent.width
+        height: 80
     }
 
     Component.onCompleted: {

@@ -3,9 +3,12 @@
         <file alias="bluetooth">images/Bluetooth.png</file>
         <file alias="info">images/Info.png</file>
     </qresource>
-    <qresource prefix="/">
-        <file>qml/Block.qml</file>
-        <file>qml/main.qml</file>
-        <file>qml/Selector.qml</file>
+    <qresource prefix="/menuBar">
+        <file alias="menubar_bg_normal">images/Menubar/Menubar_BG.png</file>
+        <file alias="menubar_bg_hover">images/Menubar/Menubar_BG_hover.png</file>
+        <file alias="menubar_btn_hover_bg">images/Menubar/Menubar_BTN/bg_hover_menu.png</file>
+        <file alias="menubar_btn_hover">images/Menubar/Menubar_BTN/Menubutton_Hover.png</file>
+        <file alias="menubar_btn_normal">images/Menubar/Menubar_BTN/Menubutton_Normal.png</file>
+        <file alias="menubar_btn_pressed">images/Menubar/Menubar_BTN/Menubutton_Press.png</file>
     </qresource>
 </RCC>
