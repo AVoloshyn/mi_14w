@@ -1,23 +1,27 @@
 #!/bin/sh
 #
-#  Project 			:	MI-14w	
-#  File Name		:	set_env.sh
-#  Authors			:	AVoloshyn
+#  Project 	:	MI-14w
+#  File Name	:	set_env.sh
+#  Authors	:	AVoloshyn
 #  Date Created	:	04.02.2015
 #  Description	:   Script for setting up the build environment of the present project.
-#                   		To start it, open a Linux shell, go to the present file path and
-#                   		start it with 	. set_env.sh
+#                   To start it, open a Linux shell, go to the present file path and
+#                   start it with 	. set_env.sh
 #
 echo "======================================="
 echo "== Set the Build Environment Started =="
 echo "======================================="
 
 # Add qtcreator PATH
-QT_CREATOR_PATH=$HOME/Qt5.4.0/Tools/QtCreator/bin
+QT_CREATOR_PATH=$HOME/Qt5.5/Tools/QtCreator/bin
 
 # Add qt-specific paths to LD_LIBRARY_PATH and to PATH
-QT_PATH=$HOME/Qt5.4.0/5.4/gcc/bin
-QT_LIB_PATH=$HOME/Qt5.4.0/5.4/gcc/lib
+QT_PATH=$HOME/Qt5.5/5.5/gcc_64/bin
+QT_LIB_PATH=$HOME/Qt5.5/5.5/gcc_64/lib
+
+# Add dlt-specific paths to LD_LIBRARY_PATH and to PATH
+DLT_INCLUDE_PATH=/usr/local/include
+DLT_LIB_PATH=/usr/local/lib/x86_64-linux-gnu
 
 # Set run path variable if it is empty
 if [ -z "${MI_14_RUN_PATH}" ]
@@ -29,7 +33,7 @@ then
 
   # Extend the LD_LIBRARY_PATH and PATH variables.
   # IF YOU WANT TO ADD NEW PATH, ADD IT HERE OR USING TEMPORARY VARIABLE
-  LD_LIBRARY_PATH=$QT_LIB_PATH:$LD_LIBRARY_PATH
+  LD_LIBRARY_PATH=$QT_LIB_PATH:$DLT_LIB_PATH:$LD_LIBRARY_PATH
   PATH=$QT_LIB_PATH:$QT_CREATOR_PATH:$QT_PATH:$PATH
 
   # Export variables to environment if it is not exist yet

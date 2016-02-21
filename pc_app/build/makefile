@@ -16,9 +16,13 @@ all: 	mi_14
 		@echo "========== MAKE ALL DONE =========="
 
 mi_14:	apps/LauncherApp \
-			apps/DataGenerator
+        apps/TestApp_1 \
+        apps/TestApp_2 \
+        apps/DataGenerator
 
 apps/DataGenerator \
+apps/TestApp_1 \
+apps/TestApp_2 \
 apps/LauncherApp :
 	@echo "========== MAKING $@ =========="
 	$(CHDIR) ../$@ && qmake && make			
